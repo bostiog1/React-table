@@ -4,13 +4,12 @@ import { BasicTable } from "./components/BasicTable";
 import { SortingTable } from "./components/SortingTable";
 import { FilteringTable } from "./components/FilteringTable";
 import { PaginationTable } from "./components/PaginationTable";
+import { RowSelection } from "./components/RowSelection";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <PaginationTable />
+    <div>
+      <RowSelection />
     </div>
   );
 }
