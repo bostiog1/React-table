@@ -1,13 +1,21 @@
 import React, { useMemo } from "react";
-import { useTable, useGlobalFilter, useFilters } from "react-table";
+import { useTable, useFilters, useGlobalFilter } from "react-table";
 import MOCK_DATA from "./MOCK_DATA.json";
 import { COLUMNS } from "./columns";
 import "./table.css";
-import GlobalFilter from "./GlobalFilter";
+import { GlobalFilter } from "./GlobalFilter";
+import { ColumnFilter } from "./ColumnFilter";
 
 export const FilteringTable = () => {
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => MOCK_DATA, []);
+
+  const defaultColumn = React.useMemo(
+    () => ({
+      Filter: ColumnFilter,
+    }),
+    []
+  );
 
   const {
     getTableProps,
@@ -22,6 +30,7 @@ export const FilteringTable = () => {
     {
       columns,
       data,
+      defaultColumn,
     },
     useFilters,
     useGlobalFilter
